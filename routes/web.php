@@ -12,9 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('items.table');
 });
 Route::get('/home','homeController@home');
 Route::get('/auth','authController@auth');
 Route::post('selamat-datang','authController@selamat_datang');
+Route::get('/master',function(){
+	return view('adminlte.master');
+});
+Route::get('/data-table',function(){
+	return view('items.datatables');
+});
+
+
+
 
