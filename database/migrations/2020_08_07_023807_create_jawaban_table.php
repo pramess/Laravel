@@ -16,17 +16,12 @@ class CreateJawabanTable extends Migration
         Schema::create('jawaban', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('isi',255);
-            $table->date('tanggal_dibuat');
-            $table->date('tanggal_diperbarui');
-            $table->integer('pertanyaan_id');
-            $table->integer('profil_id');
-            $table->unsignedBigInteger('jawaban_pertanyaan_id');
+            $table->unsignedBigInteger('profile_id');
 
-            $table->foreign('jawaban_pertanyaan_id')->references('id')->on('pertanyaan');
-            
-            $table->unsignedBigInteger('jawaban_profil1_id');
+            $table->foreign('profile_id')->references('id')->on('profiles');
+            $table->unsignedBigInteger('pertanyaan_id');
 
-            $table->foreign('jawaban_profil1_id')->references('id')->on('profils');
+            $table->foreign('pertanyaan_id')->references('id')->on('pertanyaan');
 
 
             $table->timestamps();

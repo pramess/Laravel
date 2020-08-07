@@ -15,18 +15,14 @@ class CreateKomentarPertanyaanTable extends Migration
     {
         Schema::create('komentar_pertanyaan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('isi',255);
-            $table->date('tanggal_dibuat');
-            $table->integer('pertanyaan_id');
-            $table->integer('profil_id');
-            
-            $table->unsignedBigInteger('komentar_pertanyaan1_id');
+             $table->string('isi',255);
+            $table->unsignedBigInteger('profile_id');
 
-            $table->foreign('komentar_pertanyaan1_id')->references('id')->on('pertanyaan');
+            $table->foreign('profile_id')->references('id')->on('profiles');
+            $table->unsignedBigInteger('pertanyaan_id');
 
-            $table->unsignedBigInteger('komentar_pertanyaan_profil1_id');
+            $table->foreign('pertanyaan_id')->references('id')->on('pertanyaan');
 
-            $table->foreign('komentar_pertanyaan_profil1_id')->references('id')->on('profils');
             $table->timestamps();
         });
     }
