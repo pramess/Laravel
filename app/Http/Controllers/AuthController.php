@@ -11,7 +11,7 @@ class AuthController extends Controller
    	return view('form');
    }
    public function selamat_datang(Request $request){
-   	//dd($request->all());
+   //dd($request->all());
    		$firstname=$request["firstname"];
    		$lastname=$request["lastname"];
    		return"<h2>Selamat Datang $firstname $lastname</h2> <br><br> <h3> Terimakasih telah bergabung di Sanbercode.Socialmedia kita bersama!</h3>";
