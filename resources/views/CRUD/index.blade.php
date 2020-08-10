@@ -22,7 +22,7 @@
               		{{session ('success')}}
               		</div>
               	@endif
-              	<a class="btn btn-primary mb-2" href="/pertanyaan/create">Create New</a>
+              	<a class="btn btn-primary mb-2" href="{{route('pertanyaan.create')}}">Create New</a>
                 <table class="table table-head-fixed">
                   <thead>
                     <tr>
@@ -42,7 +42,7 @@
                       <td>{{$pertanyaan->judul}}</td>
                       <td>{{$pertanyaan->isi}}</td>
                       <td>
-                      	<a href="/pertanyaan/{{$pertanyaan->id}}" class="btn btn-info btn-sm">Detail</a>
+                      	<a href="{{route('pertanyaan.show',['pertanyaan'=>$pertanyaan->id])}}" class="btn btn-info btn-sm">Detail</a>
                       	<a href="/pertanyaan/{{$pertanyaan->id}}/edit" class="btn btn-default btn-sm">Edit</a>
                       	<form action="/pertanyaan/{{$pertanyaan->id}}" method="post">
                       		@csrf
